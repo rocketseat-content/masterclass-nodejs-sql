@@ -1,10 +1,13 @@
-<h1>
-Masterclass - SQL no Node.js com Sequelize
+<h1 align="center">
+  <img alt="GoStack" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/masterclass.png" width="120px" />
 </h1>
 
-<p>
-  Nesse vídeo abordo as comparações de SQL vs NoSQL, níveis de abstração de base de dados, migrations, configuração do Sequelize, relacionamentos 1:N, relacionamentos N:N, queries complexas e muito mais!
-</p>
+<h3 align="center">
+  SQL no Node.js com Sequelize
+</h3>
+
+<p align="center">Nesse vídeo abordo as comparações de SQL vs NoSQL, níveis de abstração de base de dados, migrations, configuração do Sequelize, relacionamentos 1:N, relacionamentos N:N, queries complexas e muito mais!</p>
+
 
 ## 👨🏼‍💻 Instrutor
 
