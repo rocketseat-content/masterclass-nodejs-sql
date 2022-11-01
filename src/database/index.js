@@ -1,18 +1,46 @@
 const Sequelize = require('sequelize');
-const dbConfig = require('../config/database');
+const dbConfig = require("../config/database");
 
-const User = require('../models/User');
-const Address = require('../models/Address');
-const Tech = require('../models/Tech');
+const Address = require('../models/addressModel');
+const User = require('../models/userModel');
+const Tech = require('../models/techModel');
 
 const connection = new Sequelize(dbConfig);
 
-User.init(connection);
-Address.init(connection);
-Tech.init(connection);
+const models = [Address, User, Tech];
 
-User.associate(connection.models);
-Address.associate(connection.models);
-Tech.associate(connection.models);
+const initializations = async () => {
+    let modelsCounter = 0;
+    return new Promise((resolve, reject) => {
+        models.forEach(model => {
+          
+            if (modelsCounter === models.length) resolve();
+            model.init(connection);
+            modelsCounter += 1;
+       
+        });
+    });
+}
 
-module.exports = connection;
+
+const associations = async () => {
+    let modelsCounter = 0;
+    return new Promise((resolve, reject)=> {
+        models.forEach(model => {
+         
+            if(modelsCounter ===  models.length) resolve();
+            model.associate(connection.models);
+            modelsCounter+=1; 
+         
+        });
+    } )
+};
+
+const database = async ()=> {
+    await initializations(); 
+    await associations();
+}
+
+database();
+
+module.exports = connection; 
